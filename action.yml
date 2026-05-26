@@ -1,0 +1,25 @@
+name: "Bunny Purge Pull Zone Cache"
+description: "Purges the CDN cache of one or more Bunny.net pull zones."
+author: "bunny-purge-pull-zone-action"
+
+branding:
+  icon: "trash-2"
+  color: "orange"
+
+inputs:
+  api_key:
+    description: "Bunny.net account API key (found in Account Settings → API)."
+    required: true
+  pull_zone_ids:
+    description: "Comma-separated list of pull zone IDs to purge (e.g. '123456,789012')."
+    required: true
+
+outputs:
+  purged_zones:
+    description: "Comma-separated list of pull zone IDs that were successfully purged."
+  failed_zones:
+    description: "Comma-separated list of pull zone IDs that failed to purge."
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
